@@ -86,27 +86,27 @@
 </template>
 <script>
 export default {
-    data () {
-        return {
-            services: [
-                {
-                    img: '/img/student.svg',
-                    name: 'Web Design',
-                    desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
-                },
-                {
-                    img: '/img/student.svg',
-                    name: 'Web Development',
-                    desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
-                },
-                {
-                    img: '/img/student.svg',
-                    name: 'Technical Support',
-                    desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
-                }
-            ]
+  data () {
+    return {
+      services: [
+        {
+          img: '/img/student.svg',
+          name: 'Web Design',
+          desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
+        },
+        {
+          img: '/img/student.svg',
+          name: 'Web Development',
+          desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
+        },
+        {
+          img: '/img/student.svg',
+          name: 'Technical Support',
+          desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
         }
+      ]
     }
+  }
 }
 </script>
 
@@ -197,7 +197,7 @@ export default {
                             font-size: 0.8rem;
 
                             .info {
-                                width: 35%;
+                                width: 34%;
                                 background: #ffffff;
                                 left: -1px;
                                 position: relative;
@@ -208,7 +208,7 @@ export default {
                             }
 
                             .value {
-                                width: 63%;
+                                width: 65%;
                                 display: inline-block;
                                 padding: 8px 0;
                             }
@@ -291,5 +291,39 @@ export default {
 
         }
     }
+}
+@media only screen and (max-width: 600px) {
+  .about {
+    padding: 7rem 1rem;
+    
+    .about-container {
+        flex-direction: column;
+
+        .about-img {
+            flex-basis: 100%;
+            align-self: center;
+        }
+        
+        .about-me-content {
+            flex-direction: column;
+        }
+
+        .about-me-table {
+            flex-direction: column;
+        }
+
+        .about-services {
+            .services {
+                flex-direction: column;
+            }
+        }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+}
+@media only screen and (min-width: 993px) {
 }
 </style>

@@ -34,7 +34,6 @@
     background: #fff;
     width: 100%;
     z-index: 1000;
-
     justify-content: space-around;
 
     .nav-title {
@@ -42,10 +41,11 @@
             text-decoration: none;
             color: #000;
 
+
             h1{
                 width: 30%;
                 padding: 1rem 2.2rem;
-                align-self: center;
+                // align-self: center;
                 text-transform: uppercase;
                 text-decoration: none;
             }
@@ -84,5 +84,26 @@
             }
         }
     }
+}
+@media only screen and (max-width: 600px) {
+  .nav {
+    .nav-title {
+      a {
+        h1 {
+          margin-left: -13rem;
+        }
+      }
+    }
+    .nav-menu {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+}
+@media only screen and (min-width: 993px) {
+
 }
 </style>

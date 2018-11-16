@@ -28,9 +28,6 @@
    </div>
 </template>
 <style lang="scss" scoped>
-.open {
-    right: 0px;
-}
 .side-container {
     width: 370px;
     height: auto;
@@ -38,7 +35,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    // right: -400px;
+    right: 2px;
     background: #fff;
     z-index: 1000;
     box-shadow: -2px 0 10px rgba(0,0,0,.4);

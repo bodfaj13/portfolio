@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="contact-form">
-        <h5>Contact Address</h5>
-        <form @submit.prevent="">
+        <h5>Contact Form</h5>
+        <form @submit.prevent="onSubmit">
           <div class="form-group">
             <input type="text" name="" id="" placeholder="Full Name" required>
           </div>
@@ -37,6 +37,7 @@
             <textarea name="" id="" cols="30" rows="10" placeholder="Tell me what you want" required></textarea>
           </div>
           <div class="contact-btn">
+            <Spinner v-if="loading"></Spinner>
             <button class="btn">Send Message</button>
           </div>
         </form>
@@ -44,6 +45,29 @@
     </div>
   </section>
 </template>
+<script>
+import Spinner from '~/components/spinner.vue'
+import axios from 'axios'
+
+export default {
+  data () {
+    return {
+      loading: false
+    }
+  },
+  components: {
+    Spinner
+  },
+  methods: {
+    onSubmit () {
+      console.log('okay pls submit!')
+      axios.post('http://localhost:3000/api/test', {data: 'from client'})
+      .then(result => console.log(result))
+      .catch(error => console.log(error))
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .contact {
@@ -81,17 +105,17 @@
       }
 
       .address-details {
-          ul {
-            margin-left: -2.5rem;
+        ul {
+          margin-left: -2.5rem;
 
-            li {
-                list-style-type: none;
-                margin-bottom: 0.6rem;
-                a {
-                    text-decoration: none;
-                }
+          li {
+            list-style-type: none;
+            margin-bottom: 0.6rem;
+            a {
+                text-decoration: none;
             }
           }
+        }
       }
 
       .social-icons {
@@ -165,7 +189,7 @@
         input, textarea {
           background-color: transparent;
           border: none;
-          border-bottom: 2px solid #9e9e9e;
+          border-bottom: 1px solid #9e9e9e;
           border-radius: 0;
           outline: none;
           height: 3rem;
@@ -181,5 +205,24 @@
       }
     }
   }
+}
+@media only screen and (max-width: 600px) {
+  .contact {
+    padding: 7rem 1rem;
+
+    .contact-container {
+      flex-direction: column;
+      
+      .contact-address {
+        margin-bottom: 2.26rem
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+}
+@media only screen and (min-width: 993px) {
 }
 </style>

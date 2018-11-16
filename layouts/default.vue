@@ -1,18 +1,29 @@
 <template>
   <div>
-    <!-- <SideContact></SideContact> -->
-    <nuxt/>
-    <!-- <Fab></Fab> -->
+    <!-- <SideContact v-if="getSignal"></SideContact> -->
+    <nuxt class=""/>
+    <!-- <Fab @toggleSideContact="getSignal = $event"></Fab>  -->
   </div>
 </template>
 <script>
 import Fab from '~/components/fab.vue'
 import SideContact from '~/components/sideContact.vue'
+// import axios from 'axios'
 
 export default {
+  data () {
+    return {
+      getSignal: false
+    }
+  },
   components: {
     Fab,
-    SideContact
+    SideContact 
+  },
+  watch: {
+    getSignal: function (val) {
+      this.getSignal = val
+    }
   }
 }
 </script>
@@ -36,4 +47,7 @@ html
 .homepage, .about, .contact, .portfolio, .skills{
   background: #ccc;
 }
+/* .overlay {
+  background: rgba(0,0,0,.5);
+} */
 </style>

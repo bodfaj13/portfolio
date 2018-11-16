@@ -10,6 +10,11 @@ import Nav from '~/components/nav.vue'
 import Homepage from '~/components/homepage/index.vue'
 
 export default {
+  data () {
+    return {
+      showSideContact: false
+    }
+  },
   components: {
     Nav,
     Homepage

@@ -1,4 +1,5 @@
-const pkg = require('./package')
+// const pkg = require('./package')
+const bodyParser = require('body-parser')
 
 module.exports = {
   mode: 'universal',
@@ -7,11 +8,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Bello Ajibola Fuad',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'My portfolio website' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -21,7 +22,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: '#4CAF50' },
 
   /*
   ** Global CSS
@@ -67,5 +68,13 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  //ServerMIddleWare
+  serverMiddleware: [
+    // API middleware
+    bodyParser.json(),
+    '~api/index.js'
+  ]
+
+  //other configs are: router, env, loaderIndicator, rootDir,scrDir, transition
 }
