@@ -1,28 +1,46 @@
 <template>
   <div>
+    <MobileMenu 
+    v-if="getSignalMenu" 
+    class="animated" 
+    :class="{'slideInLeft': getSignalMenu}"
+    @menuSignalOff="revertMenuIcon($event)">
+    </MobileMenu>
+    <Nav @menuSignal="getSignalMenu = $event" :menuRevertBack="menuSignal"></Nav>
     <!-- <SideContact v-if="getSignal"></SideContact> -->
     <nuxt class=""/>
     <!-- <Fab @toggleSideContact="getSignal = $event"></Fab>  -->
   </div>
 </template>
 <script>
-import Fab from '~/components/fab.vue'
-import SideContact from '~/components/sideContact.vue'
-// import axios from 'axios'
+// import Fab from '~/components/fab.vue'
+// import SideContact from '~/components/sideContact.vue'
+import MobileMenu from '~/components/mobileMenu.vue'
+import Nav from '~/components/nav.vue'
 
 export default {
   data () {
     return {
-      getSignal: false
+      getSignalMenu: false,
+      menuSignal: true
     }
   },
   components: {
-    Fab,
-    SideContact 
+    MobileMenu,
+    Nav
+  },
+  methods: {
+    revertMenuIcon (value) {
+      if (value === false) {
+        this.getSignalMenu = false
+      }
+    }
   },
   watch: {
-    getSignal: function (val) {
-      this.getSignal = val
+    getSignalMenu: function () {
+      if (this.getSignalMenu === false) {
+        this.menuSignal = !this.menuSignal
+      }
     }
   }
 }

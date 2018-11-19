@@ -1,5 +1,5 @@
 <template>
-    <section class="portfolio">
+    <section class="portfolio animated slideInUp">
         <div class="page-header">
             <h1 class="page-title">
             My <span class="branded-text">Porfolio</span>

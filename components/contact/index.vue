@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <section class="contact animated slideInUp">
     <div class="page-header">
         <h1 class="page-title">
           Contact <span class="branded-text">Me</span>
@@ -47,7 +47,6 @@
 </template>
 <script>
 import Spinner from '~/components/spinner.vue'
-import axios from 'axios'
 
 export default {
   data () {
@@ -61,7 +60,7 @@ export default {
   methods: {
     onSubmit () {
       console.log('okay pls submit!')
-      axios.post('http://localhost:3000/api/test', {data: 'from client'})
+      return this.$axios.post('http://localhost:3000/api/test', {data: 'from client'})
       .then(result => console.log(result))
       .catch(error => console.log(error))
     }

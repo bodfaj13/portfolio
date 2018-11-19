@@ -1,19 +1,11 @@
 const express = require('express')
-const router = express.Router()
 const app = express()
 
 // Require API routes
-const users = require('./routes/users')
+const apiRoutes = require('./routes')
 
 // Import API Routes
-app.use(users)
-
-// router.get('/test-api', (req, res, next) => {
-//   console.log('response coming')
-//   res.status(200).json({
-//     message: 'Successfull'
-//   })
-// })
+app.use(apiRoutes)
 
 module.exports = {
   path: '/api',

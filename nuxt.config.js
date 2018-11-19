@@ -1,4 +1,4 @@
-// const pkg = require('./package')
+const pkg = require('./package')
 const bodyParser = require('body-parser')
 
 module.exports = {
@@ -28,6 +28,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '~assets/css/animate.css'
   ],
 
   /*

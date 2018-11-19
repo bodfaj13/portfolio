@@ -1,5 +1,5 @@
 <template>
-	<section class="homepage">
+	<section class="homepage animated slideInUp">
 		<div class="homepage-img">
 			<img src="/img/student.svg" alt="">
 		</div>
@@ -101,7 +101,7 @@ export default {
 }
 @media only screen and (max-width: 600px) {
   .homepage {
-		padding: 7rem 1rem;
+		padding: 7rem 2rem;
 
     .homepage-img {
       display: none;
