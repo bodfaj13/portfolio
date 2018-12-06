@@ -10,41 +10,10 @@
                 <div class="coding-skills">
                     <h5>Coding Skills</h5>
                     <div class="skill-set">
-                        <div class="skill">
-                            <label class="progress-label">HTMl5 & CSS3</label>
+                        <div class="skill" v-for="(cSkills, index) in codingSkills" :key="index">
+                            <label class="progress-label">{{cSkills.name}}</label>
                             <div class="progress">
-                                <div class="progress-bar" style="width: 99.8%">99.8%</div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label class="progress-label">PHP & MYSQL</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 80%">80%</div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label class="progress-label">JAVASCRIPT</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 90.8%">90.8%</div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label class="progress-label">VUE.JS</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 95%">95%</div>
-                            </div>
-                        </div>
-                         <div class="skill">
-                            <label class="progress-label">NUXT.JS</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 50%">50%</div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label class="progress-label">NODE.JS &
-                                MONGODB</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 90.8%">90.8%</div>
+                                <div class="progress-bar" :style="{'width': cSkills.percentage}">{{cSkills.percentage}}</div>
                             </div>
                         </div>
                     </div>
@@ -52,30 +21,68 @@
                 <div class="design-skills">
                     <h5>Design Skills</h5>
                     <div class="skill-set">
-                        <div class="skill">
-                            <label class="progress-label">UI/UX</label>
+                        <div class="skill" v-for="(dSkills, index) in designSkills" :key="index">
+                            <label class="progress-label">{{dSkills.name}}</label>
                             <div class="progress">
-                                <div class="progress-bar" style="width: 99.8%">99.8%</div>
+                                <div class="progress-bar" :style="{'width': dSkills.percentage}">{{dSkills.percentage}}</div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <label class="progress-label">SYSTEM ARCHITECTURAL DESIGN</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 95%">95%</div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <label class="progress-label">DATABASE SCHEME DESIGN</label>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 94.8%">94.8%</div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      codingSkills: [
+        {
+          name: 'HTML & CSS',
+          percentage: '99.8%'
+        },
+        {
+          name: 'PHP & MYSQL',
+          percentage: '80%'
+        },
+        {
+          name: 'JAVASCRIPT',
+          percentage: '90.7%'
+        },
+        {
+          name: 'VUE.JS',
+          percentage: '89%'
+        },
+        {
+          name: 'NUXT.JS',
+          percentage: '70%'
+        },
+        {
+          name: 'NODE.JS & MONGODB',
+          percentage: '89%'
+        },
+      ],
+      designSkills: [
+        {
+          name: 'UI/UX',
+          percentage: '99.8%'
+        },
+        {
+          name: 'SYSTEM ARCHITECTURAL DESIGN',
+          percentage: '95%'
+        },
+        {
+          name: 'SDATABASE SCHEME DESIGN',
+          percentage: '94.8%'
+        },
+      ]
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .skills {
   padding: 8rem 9.3rem;

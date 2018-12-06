@@ -34,7 +34,7 @@
                                 </li>
                                 <li>
                                     <span class="info">Date of Birth</span>
-                                    <span class="value">Setpember 30, 1998</span>
+                                    <span class="value">Setpember 30</span>
                                 </li>
                                 <li>
                                     <span class="info">Address</span>
@@ -90,17 +90,17 @@ export default {
     return {
       services: [
         {
-          img: '/img/student.svg',
+          img: '/img/computer-graphic.svg',
           name: 'Web Design',
           desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
         },
         {
-          img: '/img/student.svg',
+          img: '/img/web-design.svg',
           name: 'Web Development',
           desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
         },
         {
-          img: '/img/student.svg',
+          img: '/img/support.svg',
           name: 'Technical Support',
           desc: 'Lorem ipsum dolor sit amet, ducimus! Tenetur, quae magni in voluptas optio quia.'
         }

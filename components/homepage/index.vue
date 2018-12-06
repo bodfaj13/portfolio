@@ -6,13 +6,17 @@
 		<div class="homepage-content">
 			<h1>I'm <span class="branded-text">Bello Ajibola</span></h1>
 			<h3>Developer <span class="branded-text">and</span> Web designer</h3>
-			<p>Hello, I’m Bello Ajibola. I have 4 years of experience in Web develop and UX design. Come and knock my door, I'll be very happy to be Your partner, and let's make something great together!</p>
+			<p>Hello, I’m Bello Ajibola. I have 4 years of experience in Web design, Web developmemt and  IT support. Come knock my door. I'll be very happy to be your partner. Let's make something great together!</p>
 			<div class="button-container">
 				<div class="contact-btn">
-					<button class="btn" @click="goToContact">Conact Me</button>
+					<a @click="goToContact">
+						<button class="btn">Contact Me</button>
+					</a>
 				</div>
 				<div class="download-btn">
-					<button class="btn">Download CV</button>
+					<a href="cv/cv.docx">
+						<button class="btn">Download CV</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -21,9 +25,10 @@
 <script>
 export default {
 	methods: {
-	  goToContact () {
-		this.$router.push('/contact')
-	}
+	  goToContact (e) {
+			e.preventDefault()
+			this.$router.push('/contact')
+		}
   }
 }
 </script>

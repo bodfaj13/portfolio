@@ -4,6 +4,13 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
+const mongoose = require('../api/config/mongoose')
+
+const db = mongoose.connection;
+// When successfully connected
+db.on('connected', function() {
+    console.log('Mongo DB connection open for DB');
+});
 
 app.set('port', port)
 

@@ -10,35 +10,44 @@
         <h5>Contact Address</h5>
         <div class="address-details">
           <ul>
-            <li>76, Old Yidi road, Ilorin, Kwara State, Nigeria</li>
-            <li>Phone: +234 803 4846 894</li>
+            <li>19, Onayinngbo Street, Mushin, Lagos State, Nigeria</li>
+            <li>Phone: <a class="branded-text" href="tel:+2348034846894">+234 803 4846 894</a></li>
             <li>Email: <a href="mailto:bellohargbola13@gmail.com" class="branded-text">bellohargbola13@gmail.com</a></li>
           </ul>
         </div>
         <div class="social-icons">
-          <a href="" class="social-icon">
-            <img src="img/email.svg" alt="">
-          </a>
-          <a href="" class="social-icon">
+          <a href="https://wa.me/+2347034846894" class="social-icon">
             <img src="img/whatsapp.svg" alt="">
           </a>
         </div>
       </div>
       <div class="contact-form">
         <h5>Contact Form</h5>
-        <form @submit.prevent="onSubmit">
+        <div class="contact-notification">
+          <div class="success animated fadeIn" v-if="sendSuccess" @click="offSuccess">
+            <div>
+              Thanks, request sent successfully! And it will be treated within the next 24 Hours.
+            </div>
+          </div>
+          <div class="error animated fadeIn" v-if="error" @click="offError">
+            <div>
+              Oops, something went wrong!
+            </div>
+          </div>
+        </div>
+        <form @submit.prevent="">
           <div class="form-group">
-            <input type="text" name="" id="" placeholder="Full Name" required>
+            <input type="text" name="" id="" placeholder="Full Name" v-model="fullName" required>
           </div>
           <div class="form-group">
-            <input type="email" name="" id="" placeholder="Email" required>
+            <input type="email" name="" id="" placeholder="Email" v-model="email" required>
           </div>
           <div class="form-group">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Tell me what you want" required></textarea>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Tell me what you want" v-model="message" required></textarea>
           </div>
           <div class="contact-btn">
             <Spinner v-if="loading"></Spinner>
-            <button class="btn">Send Message</button>
+            <button class="btn" v-else @click="onSubmit">Send Message</button>
           </div>
         </form>
       </div>
@@ -51,18 +60,56 @@ import Spinner from '~/components/spinner.vue'
 export default {
   data () {
     return {
-      loading: false
+      loading: false,
+      fullName: '',
+      email: '',
+      message: '',
+      sendSuccess: false,
+      error: false
     }
   },
   components: {
     Spinner
   },
   methods: {
-    onSubmit () {
-      console.log('okay pls submit!')
-      return this.$axios.post('http://localhost:3000/api/test', {data: 'from client'})
-      .then(result => console.log(result))
-      .catch(error => console.log(error))
+    onSubmit (e) {
+      e.preventDefault()
+      this.offSuccess()
+      this.offError()
+      this.loading = true
+      this.$axios.post('sendmessage', 
+      {
+        fullName: this.fullName,
+        email: this.email,
+        message: this.message,
+      })
+      .then(response => {
+        console.log(response.data)
+        this.sendSuccess = true
+        this.timeOut()
+        this.clearInputs()
+      })
+      .catch(error => {
+        console.log(error.response.data)
+        this.error = true
+        this.timeOut()
+      })
+    },
+    clearInputs () {
+      this.fullName = ''
+      this.email = ''
+      this.message = ''
+    },
+    timeOut () {
+      setTimeout(() => {  
+        this.loading = false
+      }, 1100)
+    },
+    offSuccess () {
+      this.sendSuccess = false
+    },
+    offError () {
+      this.error = false
     }
   }
 }
@@ -125,8 +172,8 @@ export default {
             height: 42px;
             line-height: 42px;
             font-size: 16px;
-            color: #232323;
-            background: #fff;
+            // color: #232323;
+            // background: #4CAF50;
             border-radius: 100%;
             box-shadow: 0 4px 12px rgba(0,0,0,.13);
             margin: 0 4px;
@@ -141,10 +188,10 @@ export default {
             }
           }
 
-          .social-icon:hover {
-            background: #4CAF50;
-            color: #fff;
-          }
+          // .social-icon:hover {
+          //   background: #fff;
+          //   color: #000;
+          // }
         }
     }
 
@@ -154,6 +201,28 @@ export default {
       padding: 2.5rem;
       position: relative;
       box-shadow: 0 2px 5px rgba(0,0,0,.2);
+
+      .contact-notification {
+        .success {
+          background: #4CAF50;
+          box-shadow: 0 2px 5px rgba(0,0,0,.2);
+          padding: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        .error {
+          background: rgb(235, 52, 52);
+          box-shadow: 0 2px 5px rgba(0,0,0,.2);
+          padding: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
 
       h5 {
         font-size: 0.9rem;
