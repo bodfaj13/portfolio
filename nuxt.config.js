@@ -50,8 +50,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    // baseURL: 'https://jibo-af3c0.firebaseapp.com/api'
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'https://jibo-af3c0.firebaseapp.com/api'
+    // baseURL: 'http://localhost:3000/api'
   },
 
   /*
