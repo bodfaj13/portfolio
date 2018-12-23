@@ -14,7 +14,7 @@
                     <div class="about-me">
                         <h3>Bello Ajibola</h3>
                         <h5>Developer <span class="">and</span> Web designer</h5>
-                        <div class="about-me-content">
+                        <div class="about-me-content" v-if="false">
                             <div>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum eaque sit adipisci modi, incidunt voluptatum perspiciatis maiores commodi quasi delectus recusandae autem dolore? Officiis nam rem doloremque temporibus nostrum!
